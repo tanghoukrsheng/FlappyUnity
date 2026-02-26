@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Bird: MonoBehaviour
 {
@@ -22,7 +23,17 @@ public class Bird: MonoBehaviour
         {
             Flap();   
         }
+
+         if ( Input.GetKeyDown(KeyCode.R) )
+        {
+            ReloadScene();   
+        }
+
+
+
         _rb.MoveRotation(_rb.linearVelocityY * _rotation); // point nose downward/upward
+
+    
     }
 
     private void Flap()
@@ -32,6 +43,18 @@ public class Bird: MonoBehaviour
         _rb.AddForce(Vector2.up * _flapForce, ForceMode2D.Impulse);
     }
 
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        Time.timeScale = 0f; // stop the game
+
+    }
+
+    private void ReloadScene()
+    {
+        Time.timeScale = 1f; // resume the game
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name); // reload the current scene
+    }
 
 }
 
