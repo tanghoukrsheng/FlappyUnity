@@ -8,11 +8,13 @@ public class Bird: MonoBehaviour
     [SerializeField] private float _flapForce = 10f;
     [SerializeField] private float _rotation = 1.5f;
     [SerializeField] private float _maxHeight = 4f;
-     [SerializeField] private TextMeshPro _scoreText;
+    [SerializeField] private TextMeshPro _scoreText;
 
     private Animator _animator;
     private Rigidbody2D _rb;
     private int _score= 0;
+
+    private bool isInputAllowed = true; // flag to control whether input is allowed or not
 
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -25,6 +27,9 @@ public class Bird: MonoBehaviour
     // Update is called once per frame
     private void Update()
     {
+         if (!isInputAllowed)
+            return; // If input is not allowed, do nothing
+        
         if ( Input.GetKeyDown(KeyCode.Space) || Input.GetMouseButtonDown(0)) // 0 = left mouse
         {
             Flap();   
@@ -48,7 +53,8 @@ public class Bird: MonoBehaviour
     {
         _animator.Play("Bird_Hit"); // play the hit animation
        Time.timeScale = 0.1f; // stop the game
-       Invoke(nameof(ReloadScene), 0.2f); 
+       isInputAllowed = false; // disable input
+       Invoke(nameof(ReloadScene), 0.1f); // reload the scene after 0.2 seconds
 
 
     }
@@ -56,6 +62,7 @@ public class Bird: MonoBehaviour
     private void ReloadScene()
     {
         Time.timeScale = 1f; // resume the game
+        isInputAllowed = true; // re-enable input
         SceneManager.LoadScene(SceneManager.GetActiveScene().name); // reload the current scene
     }
 

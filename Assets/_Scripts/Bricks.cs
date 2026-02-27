@@ -4,7 +4,7 @@ public class Bricks : MonoBehaviour
 {
 
     [SerializeField] private float _movespeed = 3f;
-     [SerializeField] private float _lifecycle = 10f;
+     [SerializeField] private float _lifecycle = 10f; // the time in seconds after which the brick will be destroyed
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
