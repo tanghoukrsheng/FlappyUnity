@@ -35,10 +35,8 @@ public class Bird: MonoBehaviour
             Flap();   
         }
 
-
         _rb.MoveRotation(_rb.linearVelocityY * _rotation); // point nose downward/upward
 
-    
     }
 
     private void Flap()
@@ -54,16 +52,16 @@ public class Bird: MonoBehaviour
         _animator.Play("Bird_Hit"); // play the hit animation
        Time.timeScale = 0.1f; // stop the game
        isInputAllowed = false; // disable input
-       Invoke(nameof(ReloadScene), 0.1f); // reload the scene after 0.2 seconds
+       Invoke(nameof(ReloadIntro), 0.1f); // reload the scene after 0.2 seconds
 
 
     }
 
-    private void ReloadScene()
+    private void ReloadIntro()
     {
         Time.timeScale = 1f; // resume the game
         isInputAllowed = true; // re-enable input
-        SceneManager.LoadScene(SceneManager.GetActiveScene().name); // reload the current scene
+        SceneManager.LoadScene("IntroScene"); // load the intro scene
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
