@@ -4,7 +4,7 @@ public class BrickSpawner : MonoBehaviour
 {
      [SerializeField] private Bricks _brickPrefab;
      [SerializeField] private float _spawnInterval = 3f;
-     [SerializeField] private float _minY = -3f;
+     [SerializeField] private float _minY = 1f;
      [SerializeField] private float _maxY = 3f;
 
     private float _spawnTimer;

@@ -1,3 +1,4 @@
+using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -6,14 +7,19 @@ public class Bird: MonoBehaviour
 
     [SerializeField] private float _flapForce = 10f;
     [SerializeField] private float _rotation = 1.5f;
-    private const int leftButton = 0;
+    [SerializeField] private float _maxHeight = 4f;
+     [SerializeField] private TextMeshPro _scoreText;
+
+    private Animator _animator;
     private Rigidbody2D _rb;
+    private int _score= 0;
 
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         _rb = GetComponent<Rigidbody2D>();
+        _animator = GetComponent<Animator>();   
     }
 
     // Update is called once per frame
@@ -24,12 +30,6 @@ public class Bird: MonoBehaviour
             Flap();   
         }
 
-         if ( Input.GetKeyDown(KeyCode.R) )
-        {
-            ReloadScene();   
-        }
-
-
 
         _rb.MoveRotation(_rb.linearVelocityY * _rotation); // point nose downward/upward
 
@@ -38,15 +38,18 @@ public class Bird: MonoBehaviour
 
     private void Flap()
     {
-        
+        if (transform.position.y >= _maxHeight) return; // if the bird is above the max height, do not allow it to flap
         _rb.linearVelocityY = 0f;
-        _rb.AddForce(Vector2.up * _flapForce, ForceMode2D.Impulse);
+        _rb.AddForce(Vector2.up * _flapForce, ForceMode2D.Impulse); // add an instant upward force to the bird
     }
 
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        Time.timeScale = 0f; // stop the game
+        _animator.Play("Bird_Hit"); // play the hit animation
+       Time.timeScale = 0.1f; // stop the game
+       Invoke(nameof(ReloadScene), 0.2f); 
+
 
     }
 
@@ -56,5 +59,10 @@ public class Bird: MonoBehaviour
         SceneManager.LoadScene(SceneManager.GetActiveScene().name); // reload the current scene
     }
 
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+       _score++;
+       _scoreText.text = _score.ToString(); // update the score text
+    }
 }
 
