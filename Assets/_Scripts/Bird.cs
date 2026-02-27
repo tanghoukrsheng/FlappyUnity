@@ -61,7 +61,7 @@ public class Bird: MonoBehaviour
     {
         Time.timeScale = 1f; // resume the game
         isInputAllowed = true; // re-enable input
-        SceneManager.LoadScene("IntroScene"); // load the intro scene
+        SceneManager.LoadScene("GameOverScene"); // load the game over scene
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
