@@ -30,6 +30,7 @@ public class Bird: MonoBehaviour
     {
         _rb = GetComponent<Rigidbody2D>();
         _animator = GetComponent<Animator>();   
+        Debug.Log(_scoreText.font.name);
     }
 
     // Update is called once per frame
@@ -78,6 +79,7 @@ public class Bird: MonoBehaviour
     {
        _score++;
        _scoreText.text = _score.ToString(); // update the score text
+       Debug.Log(_scoreText.font.name);
     }
 }
 
