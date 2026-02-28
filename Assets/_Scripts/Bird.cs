@@ -16,6 +16,14 @@ public class Bird: MonoBehaviour
 
     private bool isInputAllowed = true; // flag to control whether input is allowed or not
 
+    AudioManager _audioManager;
+
+    private void Awake()
+    {
+        _audioManager = GameObject.FindGameObjectWithTag("Audio").GetComponent<AudioManager>();
+    }
+
+
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -44,12 +52,14 @@ public class Bird: MonoBehaviour
         if (transform.position.y >= _maxHeight) return; // if the bird is above the max height, do not allow it to flap
         _rb.linearVelocityY = 0f;
         _rb.AddForce(Vector2.up * _flapForce, ForceMode2D.Impulse); // add an instant upward force to the bird
+        _audioManager.PlaySFX(_audioManager.flap); // play the flap sound effect
     }
 
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
         _animator.Play("Bird_Hit"); // play the hit animation
+        _audioManager.PlaySFX(_audioManager.hit); // play the hit sound effect
        Time.timeScale = 0.1f; // stop the game
        isInputAllowed = false; // disable input
        Invoke(nameof(ReloadIntro), 0.1f); // reload the scene after 0.2 seconds

@@ -860,6 +860,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::BrickSpawner
   _brickPrefab: {fileID: 5314368975195415014, guid: fb4438d1bfdc6274082e6e1f00c1739c, type: 3}
   _spawnInterval: 3
+  _desiredSpacing: 0
   _minY: 0
   _maxY: 2
 --- !u!4 &2117475589

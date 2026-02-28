@@ -4,10 +4,10 @@ public class BrickSpawner : MonoBehaviour
 {
      [SerializeField] private Bricks _brickPrefab;
     [SerializeField] private float _spawnInterval = 3f;
-    [Tooltip("If > 0, spawner will compute spawn interval to keep this horizontal spacing (world units) between bricks.")]
+    
     [SerializeField] private float _desiredSpacing = 0f;
     [SerializeField] private float _minY = 1f;
-    [SerializeField] private float _maxY = 5f;
+    [SerializeField] private float _maxY = 9f;
 
     private float _spawnTimer;
     private float _baseSpawnInterval;
