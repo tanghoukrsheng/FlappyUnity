@@ -24,6 +24,7 @@ MemoryCaptures/
 .vs/
 .vscode/
 .idea/
+*.slnx
 
 ## OS generated
 .DS_Store

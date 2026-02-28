@@ -175,7 +175,7 @@ GameObject:
   - component: {fileID: 203675946}
   - component: {fileID: 203675945}
   m_Layer: 5
-  m_Name: Text (TMP)
+  m_Name: Text_made
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -195,11 +195,11 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 1506832173}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 307, y: -20}
+  m_AnchorMin: {x: 1, y: 0}
+  m_AnchorMax: {x: 1, y: 0}
+  m_AnchoredPosition: {x: -10, y: 165}
   m_SizeDelta: {x: 200, y: 50}
-  m_Pivot: {x: 0.5, y: 0.5}
+  m_Pivot: {x: 1, y: 0}
 --- !u!114 &203675945
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -229,8 +229,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4290752048
-  m_fontColor: {r: 0.1882353, g: 0.682353, b: 0.7490196, a: 1}
+    rgba: 4286766574
+  m_fontColor: {r: 0.9333334, g: 0.8666667, b: 0.509804, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -644,7 +644,7 @@ GameObject:
   - component: {fileID: 1576750492}
   - component: {fileID: 1576750494}
   m_Layer: 5
-  m_Name: Text (TMP)
+  m_Name: Text_Play
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
