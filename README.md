@@ -1,5 +1,6 @@
-Intructions: press the  spacebar or left-click the mouse to make the bird flap.
+Intructions: Press Spacebar or left-click to make the bird flap.
 
-First game made in Unity by tutorials on Udemy.
-Some improvements have been added, such as a start screen, a game over screen and audio.
-Futhermore, the game is a little bit different, the bricks speed up over time unlike the original game.
+This is my first project in Unity, created by watching tutorials on YouTube and Udemy.
+
+I added some improvements, such as a start screen, a game over screen, and audio.
+The game is also slightly different from the tutorials: the brick towers speed up over time.
